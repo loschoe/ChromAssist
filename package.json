@@ -1,0 +1,14 @@
+{
+  "name": "chromassist",
+  "version": "1.0.0",
+  "description": "Identification locale des couleurs en direct avec la caméra et une pipette (aide pour le daltonisme).",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

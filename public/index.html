@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b1220">
+  <!--
+    Politique de sécurité : seuls nos propres fichiers sont chargés et
+    connect-src 'none' interdit au navigateur toute requête réseau (fetch, XHR,
+    WebSocket…) depuis la page : même par erreur, aucune image ne pourrait partir.
+  -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self' blob:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>ChromAssist — identifier une couleur</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app" id="app" data-phase="idle">
+
+    <header class="top">
+      <h1 class="brand">ChromAssist</h1>
+      <p class="status" id="status" role="status">Caméra arrêtée</p>
+    </header>
+
+    <main class="main">
+
+      <!-- Zone vidéo : la vidéo remplit toute la zone (object-fit: cover) -->
+      <section class="stage" id="stage" aria-label="Aperçu de la caméra">
+        <video id="video" autoplay playsinline muted></video>
+
+        <div class="placeholder" id="placeholder">
+          <p class="placeholder-title">La caméra est arrêtée</p>
+          <p>Appuyez sur « Activer la caméra », puis déplacez la pipette sur la couleur à identifier.</p>
+        </div>
+
+        <!-- Pipette : se déplace au doigt, à la souris ou avec les flèches du clavier -->
+        <div class="reticle" id="reticle" tabindex="0" role="application" hidden
+             aria-label="Pipette. Utilisez les flèches du clavier pour la déplacer."></div>
+      </section>
+
+      <section class="panel" aria-label="Résultat">
+        <p class="error" id="error" role="alert" hidden></p>
+
+        <div class="readout">
+          <div class="swatch" id="swatch" aria-hidden="true"></div>
+          <div class="values">
+            <p class="label">Couleur estimée (approximative)</p>
+            <p class="name" id="colorName">—</p>
+            <p class="alts" id="colorAlts"></p>
+            <dl class="codes">
+              <div><dt>HEX</dt><dd id="hex">—</dd></div>
+              <div><dt>RGB</dt><dd id="rgb">—</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <!-- UN SEUL bouton, UN SEUL gestionnaire (voir app.js : toggleCamera) -->
+        <button class="btn" id="toggle" type="button">
+          <span class="btn-icon" id="toggleIcon" aria-hidden="true">▶</span>
+          <span id="toggleLabel">Activer la caméra</span>
+        </button>
+
+        <p class="privacy">Traitement local : aucune image n’est envoyée.</p>
+      </section>
+
+    </main>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
