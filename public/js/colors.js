@@ -110,14 +110,7 @@ export function deltaE2000(lab1, lab2) {
 // ---------------------------------------------------------------------------
 
 /** Couleurs chromatiques (nom, hex de référence). Facile à modifier/étendre. */
-
-/**
- * Palette étendue de couleurs nommées en français.
- * Chaque entrée contient un nom descriptif et une référence hexadécimale.
- * Les noms sont indicatifs : ils ne constituent pas une norme colorimétrique.
- */
 const CHROMATIC = [
-  // ROUGES
   ['Rouge', '#D72626'],
   ['Rouge vif', '#FF0000'],
   ['Rouge écarlate', '#FF2400'],
@@ -139,7 +132,6 @@ const CHROMATIC = [
   ['Rouge corail', '#F25F5C'],
   ['Rouge brunâtre', '#803333'],
 
-  // ROSES
   ['Rose', '#F4A0BE'],
   ['Rose pâle', '#FADADD'],
   ['Rose poudré', '#E8B4B8'],
@@ -151,6 +143,7 @@ const CHROMATIC = [
   ['Rose magenta', '#D00070'],
   ['Rose indien', '#CD5C5C'],
   ['Rose saumon', '#FA8072'],
+  ['Saumon', '#F58A78'],
   ['Rose thé', '#F4C2C2'],
   ['Rose ancien', '#C08081'],
   ['Rose mauve', '#C080A0'],
@@ -158,7 +151,6 @@ const CHROMATIC = [
   ['Rose corail', '#F88379'],
   ['Rose foncé', '#C71585'],
 
-  // ORANGES ET CUIVRES
   ['Orange', '#F58214'],
   ['Orange vif', '#FF6600'],
   ['Orange pur', '#FF8000'],
@@ -179,7 +171,6 @@ const CHROMATIC = [
   ['Cannelle', '#9B4722'],
   ['Ocre orangé', '#CC7722'],
 
-  // BRUNS
   ['Brun', '#784623'],
   ['Brun foncé', '#4E2A1E'],
   ['Brun chocolat', '#5C3317'],
@@ -200,28 +191,6 @@ const CHROMATIC = [
   ['Brun taupe', '#8B8589'],
   ['Beige brun', '#C2A383'],
 
-  // JAUNES
-  ['Jaune', '#F5D714'],
-  ['Jaune vif', '#FFFF00'],
-  ['Jaune citron', '#FFF44F'],
-  ['Jaune pâle', '#F8EFA0'],
-  ['Jaune pastel', '#FFF2B2'],
-  ['Jaune crème', '#FFFDD0'],
-  ['Jaune vanille', '#F3E5AB'],
-  ['Jaune paille', '#E4D96F'],
-  ['Jaune doré', '#FFD700'],
-  ['Jaune moutarde', '#C9A227'],
-  ['Moutarde foncé', '#A88905'],
-  ['Jaune ocre', '#D4A017'],
-  ['Ocre', '#CC7722'],
-  ['Jaune miel', '#E6B422'],
-  ['Jaune safran', '#F4C430'],
-  ['Jaune maïs', '#FBEC5D'],
-  ['Jaune soufre', '#E8E641'],
-  ['Jaune chartreuse', '#DFFF00'],
-  ['Jaune olive', '#B5A642'],
-
-  // VERTS
   ['Vert', '#28A03C'],
   ['Vert vif', '#00FF00'],
   ['Vert clair', '#96DC6E'],
@@ -256,11 +225,10 @@ const CHROMATIC = [
   ['Vert bouteille sombre', '#004B35'],
   ['Vert pin', '#01796F'],
   ['Vert turquoise', '#00A693'],
-  ['Vert d'eau', '#B0E0D3'],
+  ['Vert eau', '#B0E0D3'],
   ['Vert opaline', '#A8C3BC'],
   ['Vert de gris', '#7A9E9F'],
 
-  // TURQUOISES ET CYANS
   ['Turquoise', '#28B9AA'],
   ['Turquoise clair', '#7FEFE0'],
   ['Turquoise pâle', '#AFEEEE'],
@@ -279,7 +247,6 @@ const CHROMATIC = [
   ['Vert pétrole', '#006B64'],
   ['Bleu paon', '#067790'],
 
-  // BLEUS
   ['Bleu', '#1E5AE0'],
   ['Bleu pur', '#0000FF'],
   ['Bleu vif', '#0066FF'],
@@ -315,7 +282,6 @@ const CHROMATIC = [
   ['Bleu pétrole clair', '#317873'],
   ['Bleu minéral', '#3B7A9E'],
 
-  // VIOLETS ET POURPRES
   ['Violet', '#8232AA'],
   ['Violet vif', '#8F00FF'],
   ['Violet foncé', '#4B0082'],
@@ -344,7 +310,6 @@ const CHROMATIC = [
   ['Grenat violacé', '#702963'],
   ['Lie-de-vin', '#722F37'],
 
-  // BEIGES ET TEINTES NEUTRES CHROMATIQUES
   ['Beige', '#E1CDA5'],
   ['Beige clair', '#F5F5DC'],
   ['Beige sable', '#DCC7AA'],
@@ -365,8 +330,8 @@ const CHROMATIC = [
   ['Gris rosé', '#C4A4A4'],
   ['Gris violacé', '#A99AB5'],
   ['Brun rosé', '#A4777E']
-];
 
+];
 
 /** Niveaux de gris : définis directement par leur luminosité L* (a = b = 0). */
 const ACHROMATIC = [
